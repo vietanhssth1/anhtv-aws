@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notes for AWS Certified Cloud Practitioner</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		.eng {
+			font-weight: bold;
+			font-size: 120%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- Cloud Computing -->
+		<div class="row">
+			<h1 class="col-12">
+				Cloud Computing
+			</h1>
+			<ul>
+				<li><b>on-demand delivery </b>of compute power, database storage, applications, and other IT resources</li>
+				<li><b>pay-as-you-go pricing</b></li>
+				<li>provision exactly the right type and size of computing</li>
+				<li>access as many resources <b>almost instantly</b></li>
+				<li>simple way to access <b>servers, storage, databases</b> and a set of application services</li>
+			</ul>
+		</div>
+
+		<!-- The Five Characteristics of Cloud Computing -->
+		<div class="row">
+			<h1 class="col-12">
+				The Five Characteristics of Cloud Computing
+			</h1>
+			<ul>
+				<li>On-demand self service</li>
+				<li>Broad network access</li>
+				<li>Multi-tenancy and resource pooling</li>
+				<li>Rapid elasticity and scalability</li>
+				<li>Measured service</li>
+			</ul>
+		</div>
+
+		<!-- Six Advantages of Cloud Computing -->
+		<div class="row">
+			<h1 class="col-12">
+				Six Advantages of Cloud Computing
+			</h1>
+			<ul>
+				<li>Trade capital expense (CAPEX) for operational expense (OPEX)</li>
+				<li>Benefit from massive economies of scale</li>
+				<li>Stop guessing capacity</li>
+				<li>Increase speed and agility</li>
+				<li>Stop spending money running and maintaining data centers</li>
+				<li>Go global in minutes</li>
+			</ul>
+		</div>
+
+		<!-- Problems solved by the Cloud -->
+		<div class="row">
+			<h1 class="col-12">
+				Problems solved by the Cloud
+			</h1>
+			<ul>
+				<li>Flexibility</li>
+				<li>Cost-Effectiveness</li>
+				<li>Scalability</li>
+				<li>Elasticity</li>
+				<li>High-availability and fault-tolerance</li>
+				<li>Agility</li>
+			</ul>
+		</div>
+
+		<!-- Pricing of the Cloud	 -->
+		<div class="row">
+			<h1 class="col-12">
+				Pricing of the Cloud
+			</h1>
+			<ul>
+				<li>Compute</li>
+				<li>Storage</li>
+				<li>Data transfer OUT of the Cloud</li>
+			</ul>
+		</div>
+
+		<!-- AWS Global Infrastructure	 -->
+		<div class="row">
+			<h1 class="col-12">
+				AWS Global Infrastructure
+			</h1>
+			<ul>
+				<li>
+					<b>AWS Regions</b>
+					<ul>
+						<li>all around the world (us-east-1)</li>
+						<li>cluster of data centers</li>
+						<li>Most AWS services are region-scoped</li>
+					</ul>
+				</li>
+				<li>
+					<b>AWS Availability Zones</b>
+					<ul>
+						<li>many availability zones (usually 3, min is 2, max is 6) ap-southeast-2a</li>
+						<li>isolated from disasters</li>
+						<li>connected with high bandwidth, ultra-low latency networking</li>
+					</ul>
+				</li>
+				<li><b>AWS Data Centers</b></li>
+				<li>
+					<b>AWS Edge Locations / Points of Presence</b>
+					<ul>
+						<li>Content is delivered to end users with lower latency</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<!-- AWS Services Scope	 -->
+		<div class="row">
+			<h1 class="col-12">
+				AWS Services Scope
+			</h1>
+			<ul>
+				<li>
+					<b>Global Services</b>
+					<ul>
+						<li>Identity and Access Management (IAM)</li>
+						<li>Route 53 (DNS service)</li>
+						<li>CloudFront (Content Delivery Network)</li>
+						<li>WAF (Web Application Firewall)</li>
+					</ul>
+				</li>
+				<li><b>Region Services - Most AWS services</b></li>
+			</ul>
+		</div>
+
+		<!-- IAM Guidelines & Best Practices -->
+		<div class="row">
+			<h1 class="col-12">
+				IAM Guidelines & Best Practices
+			</h1>
+			<ul>
+				<li>Don’t use the <b>root account</b> except for AWS account setup</li>
+				<li>One physical user = One AWS user</li>
+				<li><b>Assign users to groups</b> and assign permissions to groups</li>
+				<li>Create a <b>strong password policy</b></li>
+				<li>Use and enforce the use of <b>Multi Factor Authentication (MFA)</b></li>
+				<li>Create and use Roles for giving permissions to AWS services</li>
+				<li>Use Access Keys for Programmatic Access (CLI / SDK)</li>
+				<li>Audit permissions of your account with the IAM Credentials Report</li>
+				<li><b>Never share IAM users & Access Keys</b></li>
+			</ul>
+		</div>
+
+		<!-- EBS Vs. S3 Vs. EFS	 -->
+		<div class="row">
+			<h1 class="col-12">
+				EBS Vs. S3 Vs. EFS
+			</h1>
+			<ul>
+				<li>EBS <b>(System storage for Amazon EC2 VMs)</b> is a high-performance per-instance block storage system designed to act as storage for a single EC2 instance (most of the time)</li>
+				<li>EFS <b>(Scalable data storage for Amazon EC2 VMs)</b> is a highly scalable file storage system designed to provide flexible storage for multiple EC2 instances</li>
+				<li>S3 <b>(Data storage for unstructured data	)</b> is an object storage system, designed to provide archiving and data control options and to interface with other services beyond EC2. It’s also useful for storing static html pages and shared storage for applications</li>
+			</ul>
+		</div>
+
+		<!-- Database Section -->
+		<div class="row">
+			<h1 class="col-12">
+				Database Section
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- Elastic Load Balancing (ELB) -->
+		<div class="row">
+			<h1 class="col-12">
+				Elastic Load Balancing (ELB)
+			</h1>
+			<ul>
+				<li>Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances in one or more Availability Zones (AZs).</li>
+			</ul>
+		</div>
+
+		<!-- Application Load Balancer -->
+		<div class="row">
+			<h1 class="col-12">
+				Application Load Balancer
+			</h1>
+			<ul>
+				<li>Load balance HTTP and HTTPS traffic with advanced request routing targeted at the delivery of modern applications.</li>
+			</ul>
+		</div>
+
+		<!-- Gateway Load Balancer -->
+		<div class="row">
+			<h1 class="col-12">
+				Gateway Load Balancer
+			</h1>
+			<ul>
+				<li>Deploy, scale, and run third-party virtual appliances</li>
+			</ul>
+		</div>
+
+		<!-- Network Load Balancer -->
+		<div class="row">
+			<h1 class="col-12">
+				Network Load Balancer
+			</h1>
+			<ul>
+				<li>Load balance Transmission Control Protocol, User Datagram Protocol, and Transport Layer Security traffic with high performance</li>
+			</ul>
+		</div>
+
+		<!-- Classic Load Balancer -->
+		<div class="row">
+			<h1 class="col-12">
+				Classic Load Balancer
+			</h1>
+			<ul>
+				<li>Load balance across multiple Amazon EC2 instances at the request level and the connection level</li>
+			</ul>
+		</div>
+
+		<!-- Auto Scaling Group	 -->
+		<div class="row">
+			<h1 class="col-12">
+				Auto Scaling Group
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- Simple Storage Service - S3	 -->
+		<div class="row">
+			<h1 class="col-12">
+				Simple Storage Service - S3
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+
+		<!-- aaaaaaaaaaa	 -->
+		<div class="row">
+			<h1 class="col-12">
+				aaaaaaaaaaaaaa
+			</h1>
+			<ul>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+				<li>aaaaaaaa</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
