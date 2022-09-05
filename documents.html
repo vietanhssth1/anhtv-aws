@@ -127,8 +127,20 @@
 					<b>Global Services</b>
 					<ul>
 						<li>Identity and Access Management (IAM)</li>
-						<li>Route 53 (DNS service)</li>
-						<li>CloudFront (Content Delivery Network)</li>
+						<li>
+							<b>Route 53 (DNS service)</b>
+							<ul>
+								<li>Great to route users to the closest deployment with least latency</li>
+								<li>Great for disaster recovery strategies</li>
+							</ul>
+						</li>
+						<li>
+							<b>CloudFront (Content Delivery Network)</b>
+							<ul>
+								<li>Replicate part of your application to AWS Edge Locations – decrease latency</li>
+								<li>Cache common requests – improved user experience and decreased latency</li>
+							</ul>
+						</li>
 						<li>WAF (Web Application Firewall)</li>
 					</ul>
 				</li>
@@ -172,9 +184,160 @@
 				Database Section
 			</h1>
 			<ul>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
+				<li>
+					<b>NoSQL Databases</b>
+					<ul>
+						<li>NoSQL databases are purpose built for specific data models and have flexible schemas for building modern applications</li>
+						<li>Flexibility: easy to evolve data model</li>
+						<li>Scalability: designed to scale-out by using distributed clusters</li>
+						<li>High-performance: optimized for a specific data model</li>
+						<li>Highly functional: types optimized for the data model</li>
+						<li>Examples: Key-value, document, graph, in-memory, search databases</li>
+					</ul>
+				</li>
+				<li>
+					<b>Databases & Shared Responsibility on AWS</b>
+					<ul>
+						<li>AWS offers use to manage different databases</li>
+						<li>Quick Provisioning, High Availability, Vertical and Horizontal Scaling</li>
+						<li>Automated Backup & Restore, Operations, Upgrades</li>
+						<li>Operating System Patching is handled by AWS</li>
+						<li>Monitoring, alerting</li>
+						<li>Note: many databases technologies could be run on EC2, but you must handle yourself the resiliency, backup, patching, high availability, fault tolerance, scaling…</li>
+					</ul>
+				</li>
+				<li>
+					<b>RDS</b>
+					<ul>
+						<li><b>Automated</b> provisioning, OS patching</li>
+						<li><b>Continuous backups and restore</b> to specific timestamp (Point in Time Restore)!</li>
+						<li>Monitoring dashboards</li>
+						<li>Read replicas for improved read performance</li>
+						<li><b>Multi AZ</b> setup for DR <b>(Disaster Recovery)</b></li>
+						<li>Maintenance windows for upgrades</li>
+						<li>Scaling capability (vertical and horizontal)</li>
+						<li>Storage backed by EBS (gp2 or io1)</li>
+						<li><b>BUT you can’t SSH into your instances</b></li>
+					</ul>
+				</li>
+				<li>
+					<b>Aurora</b>
+					<ul>
+						<li>Aurora is “AWS cloud optimized” and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS</li>
+						<li>Aurora storage automatically grows in increments of 10GB, up to 64 TB</li>
+						<li>Aurora costs more than RDS (20% more) – but is more efficient</li>
+						<li>Not in the free tier</li>
+					</ul>
+				</li>
+				<li>
+					<b>ElastiCache</b>
+					<ul>
+						<li>ElastiCache is to get managed Redis or Memcached</li>
+						<li>Caches are <b>in-memory databases</b> with high performance, low latency</li>
+						<li>Helps <b>reduce load off databases for read intensive workloads</b></li>
+						<li>AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
+					</ul>
+				</li>
+				<li>
+					<b>DynamoDB</b>
+					<ul>
+						<li>Fully Managed Highly available with replication across 3 AZ</li>
+						<li><b>NoSQL database - not a relational database</b></li>
+						<li>Scales to massive workloads, distributed <b>“serverless”</b> database</li>
+						<li><b>Single-digit millisecond latency – low latency retrieval</b></li>
+						<li><b>Integrated with IAM</b> for security, authorization and administration</li>
+						<li>Low cost and auto scaling capabilities</li>
+					</ul>
+				</li>
+				<li>
+					<b>Redshift</b>
+					<ul>
+						<li>Redshift is based on PostgreSQL, but it’s not used for OLTP. It’s OLAP</li>
+						<li>Load data once <b>every hour, not every second</b></li>
+						<li>10x better performance than other data warehouses, scale to PBs of data</li>
+						<li><b>Columnar</b> storage of data (instead of row based)</li>
+						<li>Massively Parallel Query Execution (MPP), highly available</li>
+						<li>Pay as you go based on the instances provisioned</li>
+						<li>Has a SQL interface for performing the queries</li>
+						<li>BI tools such as AWS Quicksight or Tableau integrate with it</li>
+						<li></li>
+					</ul>
+				</li>
+				<li>
+					<b>EMR</b>
+					<ul>
+						<li>EMR helps creating <b>Hadoop clusters (Big Data)</b> to analyze and process vast amount of data</li>
+						<li>The clusters can be made of <b>hundreds of EC2 instances</b></li>
+						<li>EMR takes care of all the provisioning and configuration</li>
+						<li>Auto-scaling and integrated with Spot instances</li>
+						<li><b>Use cases: data processing, machine learning, web indexing, big data…</b></li>
+					</ul>
+				</li>
+				<li>
+					<b>Athena</b>
+					<ul>
+						<li>Fully <b>Serverless</b> database with SQL capabilities</li>
+						<li>Used to query data in S3</li>
+						<li>Pay per query</li>
+						<li>Output results back to S3</li>
+						<li>Secured through IAM</li>
+						<li><b>Use Case:</b> one-time SQL queries, serverless queries on S3, log analytics</li>
+					</ul>
+				</li>
+				<li>
+					<b>QuickSight</b>
+					<ul>
+						<li><b>Serverless machine learning-powered business intelligence service to create interactive dashboards</b></li>
+						<li>Fast, automatically scalable, embeddable, with per-session pricing</li>
+						<li><b>Use Case:</b> Business analytics, Building visualizations, Perform ad-hoc analysis, Get business insights using data</li>
+					</ul>
+				</li>
+				<li>
+					<b>Neptune</b>
+					<ul>
+						<li>Fully managed <b>graph</b> database</li>
+						<li>A popular <b>graph</b> dataset would be a social network</li>
+						<li>Build and run applications working with highly connected datasets – optimized for these complex and hard queries</li>
+						<li>Can store up to billions of relations and query the graph with milliseconds latency</li>
+						<li>Great for knowledge graphs (Wikipedia), fraud detection, recommendation engines, social networking</li>
+					</ul>
+				</li>
+				<li>
+					<b>QLDB</b>
+					<ul>
+						<li>QLDB stands for ”Quantum Ledger Database”</li>
+						<li>A ledger is a book <b>recording financial transactions</b></li>
+						<li>Fully Managed, <b>Serverless</b>, High available, Replication across 3 AZ</li>
+						<li>Used to <b>review history of all the changes made to your application data</b> over time</li>
+						<li><b>Immutable</b> system: no entry can be removed or modified, cryptographically verifiable</li>
+						<li>Difference with Amazon Managed Blockchain: <b>no decentralization component</b>, in accordance with financial regulation rules</li>
+					</ul>
+				</li>
+				<li>
+					<b>Amazon Managed Blockchain</b>
+					<ul>
+						<li>Blockchain makes it possible to build applications where multiple parties can execute transactions <b>without the need for a trusted, central authority</b></li>
+					</ul>
+				</li>
+				<li>
+					<b>Glue</b>
+					<ul>
+						<li>Managed <b>extract, transform, and load (ETL)</b> service</li>
+						<li>Useful to prepare and transform data for analytics</li>
+						<li>Fully <b>serverless</b> service</li>
+						<li>Glue Data Catalog: catalog of datasets</li>
+						<li>can be used by Athena, Redshift, EMR</li>
+					</ul>
+				</li>
+				<li>
+					<b>DMS</b>
+					<ul>
+						<li>Quickly and securely <b>migrate databases</b> to AWS, resilient, self healing</li>
+						<li>The source database remains available during the migration</li>
+						<li>Supports: Homogeneous migrations: ex Oracle to Oracle</li>
+						<li>Supports: Heterogeneous migrations: ex Microsoft SQL Server to Aurora</li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 
@@ -234,9 +397,9 @@
 				Auto Scaling Group
 			</h1>
 			<ul>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
+				<li>Implement Elasticity for your application, across multiple AZ</li>
+				<li>Scale EC2 instances based on the demand on your system, replace unhealthy</li>
+				<li>Integrated with the ELB</li>
 			</ul>
 		</div>
 
@@ -246,21 +409,31 @@
 				Simple Storage Service - S3
 			</h1>
 			<ul>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
+				<li><b>Buckets vs Objects:</b> global unique name, tied to a region</li>
+				<li><b>S3 security:</b> IAM policy, S3 Bucket Policy (public access), S3 Encryption</li>
+				<li><b>S3 Websites:</b> host a static website on Amazon S3</li>
+				<li><b>S3 Versioning:</b> multiple versions for files, prevent accidental deletes</li>
+				<li><b>S3 Access Logs:</b> log requests made within your S3 bucket</li>
+				<li><b>S3 Replication:</b> same-region or cross-region, must enable versioning</li>
+				<li><b>S3 Storage Classes:</b> Standard, IA, 1Z-IA, Intelligent, Glacier, Glacier Deep Archive</li>
+				<li><b>S3 Lifecycle Rules:</b> transition objects between classes</li>
+				<li><b>S3 Glacier Vault Lock / S3 Object Lock:</b> WORM (Write Once Read Many)</li>
+				<li><b>Snow Family:</b> import data onto S3 through a physical device, edge computing</li>
+				<li><b>OpsHub:</b> desktop application to manage Snow Family devices</li>
+				<li><b>Storage Gateway:</b> hybrid solution to extend on-premises storage to S3</li>
 			</ul>
 		</div>
 
-		<!-- aaaaaaaaaaa	 -->
+		<!-- Elastic Beanstalk	 -->
 		<div class="row">
 			<h1 class="col-12">
-				aaaaaaaaaaaaaa
+				Elastic Beanstalk
 			</h1>
 			<ul>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
-				<li>aaaaaaaa</li>
+				<li>Elastic Beanstalk is a developer centric view of deploying an application on AWS</li>
+				<li><b>Beanstalk = Platform as a Service (PaaS)</b></li>
+				<li>Beanstalk is free but you pay for the underlying instances</li>
+				<li><b>Just the application code is the responsibility of the developer</b></li>
 			</ul>
 		</div>
 
