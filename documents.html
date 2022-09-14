@@ -615,6 +615,153 @@
 				</li>
 			</ul>
 		</div>
+			
+		<!-- Security & Compliance	 -->
+		    <div class="row">
+			<h1 class="col-12">
+			    Security & Compliance
+			</h1>
+			<ul>
+			    <li>
+				<ul>
+				    <b>AWS Shared Responsibility Model</b>
+				    <li><b>AWS responsibility: </b>Protecting infrastructure (hardware, software, facilities, and networking) that runs all the AWS services</li>
+				    <li><b>AWS responsibility: </b>Managed services like S3, DynamoDB, RDS</li>
+				    <li><b>Customer responsibility: </b>For EC2 instance, customer is responsible for management of the guest OS (including security patches and updates), firewall & network configuration, IAM</li>
+				    <li><b>Customer responsibility: </b>Encrypting application data</li>
+				    <li><b>Shared controls: </b>Patch Management, Configuration Management, Awareness & Training</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Shield</b>
+				    <li><b>AWS Shield Standard: </b>Provides protection from attacks such as SYN/UDP Floods, Reflection attacks and other layer 3/layer 4 attacks</li>
+				    <li><b>AWS Shield Advanced: </b>Optional DDoS mitigation service, Protect against more sophisticated attack, 24/7 access to AWS DDoS response team (DRP), Protect against higher fees during usage spikes due to DDoS</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS WAF</b>
+				    <li>Protects your web applications from common web exploits (Layer 7)</li>
+				    <li><b>Layer 7 is HTTP</b> (vs Layer 4 is TCP)</li>
+				    <li>Deploy on <b>Application Load Balancer, API Gateway, CloudFront</b></li>
+				    <li>
+					<b>Define Web ACL (Web Access Control List):</b>
+					<ul>
+					    <li>Rules can include IP addresses, HTTP headers, HTTP body, or URI strings</li>
+					    <li>Protects from common attack - <b>SQL injection</b> and <b>Cross-Site Scripting (XSS)</b></li>
+					    <li>Size constraints, <b>geo-match (block countries)</b></li>
+					    <li><b>Rate-based rules</b> (to count occurrences of events) – <b>for DDoS protection</b></li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS KMS (Key Management Service)</b>
+				    <li>Anytime you hear “encryption” for an AWS service, it’s most likely KMS</li>
+				    <li>KMS = <b>AWS manages the encryption keys for us</b></li>
+				    <li><b>Encryption Opt-in: </b>EBS volumes, S3 buckets, Redshift database, RDS database, EFS drives</li>
+				    <li><b>Encryption Automatically enabled: </b>CloudTrail Logs, S3 Glacier, Storage Gateway</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>CloudHSM</b>
+				    <li>KMS => AWS manages the software for encryption</li>
+				    <li>CloudHSM => AWS provisions encryption <b>hardware</b></li>
+				    <li>Dedicated Hardware (HSM = Hardware Security Module)</li>
+				    <li><b>You manage</b> your own encryption keys entirely (not AWS)</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Certificate Manager</b>
+				    <li>provision, manage, and deploy SSL/TLS Certificates</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Artifact</b>
+				    <li><b>Portal that provides customers with on-demand access to AWS compliance documentation and AWS agreements</b></li>
+				    <li><b>Artifact Reports</b> - Allows you to download AWS security and compliance documents from third-party auditors</li>
+				    <li><b>Artifact Agreements</b> - Allows you to review, accept, and track the status of AWS agreements such as the Business Associate Addendum (BAA) or the Health Insurance Portability and Accountability Act (HIPAA) for an individual account or in your organization</li>
+				    <li>Can be used to <b>support internal audit or compliance</b></li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>Amazon GuardDuty</b>
+				    <li>Find malicious behavior with VPC, DNS & CloudTrail Logs</li>
+				    <li>Intelligent Threat discovery to Protect AWS Account</li>
+				    <li>Uses Machine Learning algorithms, anomaly detection, 3 rd party data</li>
+				    <li>One click to enable (30 days trial), no need to install software</li>
+				    <li>Can setup <b>CloudWatch Event rules</b> to be notified in case of findings</li>
+				    <li>CloudWatch Events rules can target AWS Lambda or SNS</li>
+				    <li><b>Can protect against CryptoCurrency attacks (has a dedicated “finding” for it)</b></li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>Amazon Inspector</b>
+				    <li><b>Automated Security Assessments</b></li>
+				    <li>
+					<b>For EC2 instances</b>
+					<ul>
+					    <li>Leveraging the <b>AWS System Manager (SSM) agent</b></li>
+					    <li>Analyze against <b>unintended network accessibility</b></li>
+					    <li>Analyze the <b>running OS</b> against <b>known vulnerabilities</b></li>
+					</ul>
+				    </li>
+				    <li>
+					<b>For Containers push to Amazon ECR</b>
+				    </li>
+				    <li>Reporting & integration with AWS Security Hub</li>
+				    <li>Send findings to Amazon Event Bridge</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Config</b>
+				    <li>Find malicious behavior with VPC, DNS & CloudTrail Logs</li>
+				    <li>Helps <b>record configurations and changes over time</b></li>
+				    <li>Possibility of storing the configuration data into S3 (analyzed by Athena)</li>
+				    <li>You can receive alerts (SNS notifications) for any changes</li>
+				    <li>AWS Config is a per-region service</li>
+				    <li>Can be aggregated across regions and accounts</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>Amazon Macie</b>
+				    <li>Amazon Macie is a fully managed data security and data privacy service that uses <b>machine learning and pattern matching to discover and protect your sensitive data in AWS</b></li>
+				    <li>Intelligent Threat discovery to Protect AWS Account</li>
+				    <li>Macie helps identify and alert you to <b>sensitive data, such as personally identifiable information (PII)</b></li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Security Hub</b>
+				    <li><b>Central security tool</b> to manage security <b>across several AWS accounts</b> and <b>automate security checks</b></li>
+				    <li>Integrated dashboards showing current security and compliance status to quickly take actions</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>Amazon Detective</b>
+				    <li>Amazon Detective <b>analyzes, investigates, and quickly identifies the root cause of security issues or suspicious activities (using ML and graphs)</b></li>
+				    <li><b>Automatically collects and processes events</b> from VPC Flow Logs, CloudTrail, GuardDuty and create a unified view</li>
+				</ul>
+			    </li>
+			    <li>
+				<ul>
+				    <b>AWS Abuse</b>
+				    <li><b>Report suspected AWS resources used for abusive or illegal purposes</b></li>
+				    <li>Abusive & prohibited behaviors are: <b>Spam, Port scanning, DoS or DDoS attacks, Intrusion attempts, Hosting objectionable or copyrighted content, Distributing malware</b></li>
+				</ul>
+			    </li>
+			</ul>
+		    </div>
 
 		<!-- AWS Ecosystem - AWS Support	 -->
 		<div class="row">
